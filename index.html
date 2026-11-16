@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Film Orbit · 我的观影宇宙</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="space.css?v=7" />
+</head>
+<body>
+  <div class="starfield" id="starfield" aria-hidden="true"></div>
+  <div id="detailBackdrop" class="detail-backdrop hidden" aria-hidden="true"><div id="detailBackdropImage"></div></div>
+  <div class="grain"></div>
+  <header class="topbar">
+    <a class="brand" href="#home"><span class="brand-mark">✦</span><span>FILM ORBIT</span></a>
+    <nav><a class="active" href="#home">我的宇宙</a><a href="#about">使用说明</a></nav>
+    <button class="primary small" id="newRecordBtn">＋ 新增观影记录</button><button class="ghost small" id="profileBtn">设置名字</button><button class="ghost small" id="langBtn">EN</button>
+  </header>
+
+  <main id="homeView" class="view">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">PERSONAL CINEMA LOG · <span id="movieCount">0</span> FILMS</p><h1>欢迎来到 <span id="welcomeName">我的</span><br><em>电影世界</em></h1>
+        <p class="hero-copy">拖动旋转你的观影宇宙，点击海报打开一段记忆。</p>
+      </div>
+      <div class="orbit-hint"><span class="dot"></span> DRAG TO EXPLORE</div>
+    </section>
+    <section class="orbit-stage" id="orbitStage">
+      <div class="orbit-glow"></div><div class="orbit-ring ring-a"></div><div class="orbit-ring ring-b"></div>
+      <div id="sphere" class="sphere" aria-label="电影海报球"></div>
+      <div id="emptyState" class="empty-state hidden"><div class="empty-icon">✦</div><h2>你的电影宇宙还是空的</h2><p>添加第一部电影，让它成为你的星球。</p><button class="primary" id="emptyAdd">＋ 创建第一条记录</button></div>
+    </section><section class="stats" aria-label="本年观影统计"><div><strong id="yearCount">0</strong><span>本年观影数</span></div><div><strong id="yearMinutes">0</strong><span>本年观影时长（分钟）<small id="yearHoursLabel"></small></span></div></section>
+    <section class="recent"><div class="section-label">RECENTLY WATCHED</div><div id="recentList" class="recent-list"></div></section>
+  </main>
+
+  <main id="detailView" class="view detail-view hidden">
+    <button class="back-btn" id="backBtn">← 返回我的宇宙</button>
+    <div id="detailContent"></div>
+  </main>
+
+  <section id="aboutView" class="view about-view hidden"><div class="about-card"><p class="eyebrow">HOW IT WORKS</p><h1>你的观影档案，<br><em>只属于你。</em></h1><p>所有记录只保存在当前浏览器的本地存储中，不会上传服务器。你可以随时添加海报、电影票和文字，构建自己的电影星球。</p><div class="about-grid"><div><b>01</b><span>拖动球体</span><small>按住鼠标或触摸屏旋转海报球</small></div><div><b>02</b><span>点击海报</span><small>打开完整观影记录</small></div><div><b>03</b><span>保存记忆</span><small>图片和文字自动保存在本机</small></div></div></div></section>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true"><div class="modal-backdrop"></div><div class="modal-card"><div class="modal-head"><div><p class="eyebrow" id="modalEyebrow">NEW ENTRY</p><h2 id="modalTitle">新增观影记录</h2></div><button class="icon-btn" id="closeModal">×</button></div><form id="movieForm" novalidate><input type="hidden" id="movieId"><div class="form-grid"><label class="poster-upload"><input id="posterInput" type="file" accept="image/*"><span class="upload-preview" id="posterPreview"><span>＋</span><small>上传海报</small></span></label><div class="fields"><label>电影名称<input id="titleInput" required placeholder="例如：花样年华"></label><label>电影英文名（选填）<input id="englishTitleInput" placeholder="例如：In the Mood for Love"></label><label>电影时长（分钟）<input id="durationInput" type="number" min="1" step="1" placeholder="例如：98"></label><label>导演 / 年份<input id="metaInput" placeholder="王家卫 · 2000"></label><label>观影日期<input id="dateInput" type="date"></label><label>影院<input id="cinemaInput" placeholder="例如：百丽宫影城"></label></div></div><label>一句话简介<textarea id="summaryInput" rows="2" placeholder="这部电影讲了什么？"></textarea></label><label>我的观后感<textarea id="reviewInput" rows="5" placeholder="写下此刻的感受、喜欢的片段或想说的话……"></textarea></label><div class="upload-row"><label class="file-field"><span>🎟 电影票</span><input id="ticketInput" type="file" accept="image/*"><small id="ticketName">未选择图片</small></label><div id="ticketPreview" class="ticket-preview"></div></div><p id="formError" class="form-error hidden" role="alert"></p><div class="form-actions"><button type="button" class="ghost" id="cancelBtn">取消</button><button class="primary" type="submit">保存记录</button></div></form></div></div>
+  <div id="toast" class="toast"></div>
+  <script src="app.js?v=6"></script>
+</body></html>
