@@ -8,7 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=4" />
-  <link rel="stylesheet" href="space.css?v=7" />
+  <link rel="stylesheet" href="space.css?v=8" />
+  <link rel="stylesheet" href="zoom.css?v=1" />
 </head>
 <body>
   <div class="starfield" id="starfield" aria-hidden="true"></div>
@@ -44,6 +45,7 @@
   <section id="aboutView" class="view about-view hidden"><div class="about-card"><p class="eyebrow">HOW IT WORKS</p><h1>你的观影档案，<br><em>只属于你。</em></h1><p>所有记录只保存在当前浏览器的本地存储中，不会上传服务器。你可以随时添加海报、电影票和文字，构建自己的电影星球。</p><div class="about-grid"><div><b>01</b><span>拖动球体</span><small>按住鼠标或触摸屏旋转海报球</small></div><div><b>02</b><span>点击海报</span><small>打开完整观影记录</small></div><div><b>03</b><span>保存记忆</span><small>图片和文字自动保存在本机</small></div></div></div></section>
 
   <div id="modal" class="modal hidden" role="dialog" aria-modal="true"><div class="modal-backdrop"></div><div class="modal-card"><div class="modal-head"><div><p class="eyebrow" id="modalEyebrow">NEW ENTRY</p><h2 id="modalTitle">新增观影记录</h2></div><button class="icon-btn" id="closeModal">×</button></div><form id="movieForm" novalidate><input type="hidden" id="movieId"><div class="form-grid"><label class="poster-upload"><input id="posterInput" type="file" accept="image/*"><span class="upload-preview" id="posterPreview"><span>＋</span><small>上传海报</small></span></label><div class="fields"><label>电影名称<input id="titleInput" required placeholder="例如：花样年华"></label><label>电影英文名（选填）<input id="englishTitleInput" placeholder="例如：In the Mood for Love"></label><label>电影时长（分钟）<input id="durationInput" type="number" min="1" step="1" placeholder="例如：98"></label><label>导演 / 年份<input id="metaInput" placeholder="王家卫 · 2000"></label><label>观影日期<input id="dateInput" type="date"></label><label>影院<input id="cinemaInput" placeholder="例如：百丽宫影城"></label></div></div><label>一句话简介<textarea id="summaryInput" rows="2" placeholder="这部电影讲了什么？"></textarea></label><label>我的观后感<textarea id="reviewInput" rows="5" placeholder="写下此刻的感受、喜欢的片段或想说的话……"></textarea></label><div class="upload-row"><label class="file-field"><span>🎟 电影票/观影瞬间</span><input id="ticketInput" type="file" accept="image/*" multiple><small id="ticketName">未选择图片</small></label><div id="ticketPreview" class="ticket-preview"></div></div><p id="formError" class="form-error hidden" role="alert"></p><div class="form-actions"><button type="button" class="ghost" id="cancelBtn">取消</button><button class="primary" type="submit">保存记录</button></div></form></div></div>
+  <div id="imageLightbox" class="image-lightbox hidden" role="dialog" aria-modal="true"><button id="lightboxClose" class="lightbox-close" aria-label="关闭">×</button><img id="lightboxImage" alt="大图预览"></div>
   <div id="toast" class="toast"></div>
-  <script src="app.js?v=7"></script>
+  <script src="app.js?v=8"></script>
 </body></html>
